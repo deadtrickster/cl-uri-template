@@ -19,5 +19,8 @@ install:
 #      - $HOME/.roswell
 #      - $HOME/.config/common-lisp
 
+before_script:
+  - ./install-travis-deps.sh
+
 script:
   - run-prove uri-template.test.asd
