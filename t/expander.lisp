@@ -39,6 +39,10 @@
   (let ((cases (load-cases-file "spec-examples-by-section.json")))
     (run-cases cases)))
 
+(subtest "Expand using alist variables"
+  (is (uri-template:expand "https://api.github.com/users/{user}/repos{?type,page,per_page,sort}" '(("user" . "deadtrickster") ("type" . "public")))
+      "https://api.github.com/users/deadtrickster/repos?type=public"))
+
 ;; (subtest "Testing with extended-tests.json"
 ;;   (let ((cases (load-cases-file "extended-tests.json")))
 ;;     (run-cases cases)))

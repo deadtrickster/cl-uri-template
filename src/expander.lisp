@@ -210,6 +210,15 @@
 (defmethod expand-operator ((operator (eql #\#)) varname value explode prefix)
   (to-string value explode prefix +reserved+))
 
+(defmethod get-variable ((variables hash-table) name)
+  (gethash name variables +undef+))
+
+(defmethod get-variable ((variables list) name)
+  (multiple-value-bind (value cons) (assoc-value variables name :test #'ia-hash-table:string-equalp)
+    (if cons
+        value
+        +undef+)))
+
 (defun expand (template variables)
   (flet ((sub (target-string start end match-start match-end reg-starts reg-ends)
            (declare (ignore start end match-start match-end))
@@ -220,7 +229,7 @@
                (multiple-value-bind (start joiner) (start-and-joiner-for-operator operator)
                  (loop for varspec in varspecs do
                        (multiple-value-bind (varname explode prefix) (parse-varspec varspec)
-                         (let* ((value (gethash varname variables +undef+))
+                         (let* ((value (get-variable variables varname))
                                 (expanded (expand-operator operator varname value explode prefix)))
                            (when expanded
                              (push expanded retval)))))
