@@ -1,4 +1,4 @@
-## RFC6570 URI templates
+## RFC6570 URI templates [![Build Status](https://travis-ci.org/deadtrickster/cl-uri-template.svg?branch=master)](https://travis-ci.org/deadtrickster/uri-template) [![Coverage Status](https://coveralls.io/repos/deadtrickster/uri-template/badge.svg?branch=master&service=github)](https://coveralls.io/github/deadtrickster/cl-uri-template?branch=master)
 
 Currently implemented using tons of regex, subseqs and other hairy stuff.
 Should be usable anyway.
