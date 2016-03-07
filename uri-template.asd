@@ -2,7 +2,12 @@
   :serial t
   :version "0.0.1"
   :licence "MIT"
-  :depends-on ("alexandria" "split-sequence" "cl-ppcre" "collectors" "ia-hash-table")
+  :depends-on ("alexandria"
+               "split-sequence"
+               "cl-ppcre"
+               "collectors"
+               "ia-hash-table"
+               "flexi-streams")
   :author "Ilya Khaprov <ilya.kharpov@publitechs.com>"
   :components ((:module "src"
                 :serial t

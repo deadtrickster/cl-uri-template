@@ -12,15 +12,15 @@
   :author "Ilya Khaprov <ilya.khaprov@publitechs.com>"
   :licence "MIT"
   :depends-on ("uri-template"
-               "prove"""
-               "cl-interpol")
+               "prove"
+               "cl-interpol"
+               "yason")
   :serial t
   :components ((:module "t"
                 :serial t
                 :components
                 ((:file "package")
                  (:test-file "dummy")
-                 (:test-file "variables")
                  (:test-file "expander"))))
   :defsystem-depends-on (:prove-asdf)
   :perform (test-op :after (op c)

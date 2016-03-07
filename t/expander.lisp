@@ -29,6 +29,8 @@
                           (ok (try-match-test-case expanded (aref testcase 1)) (format nil "~s expanded to ~s" (aref testcase 0) expanded))))))
            cases))
 
+(plan 2)
+
 (subtest "Testing with spec-examples.json"
   (let ((cases (load-cases-file "spec-examples.json")))
     (run-cases cases)))
@@ -41,3 +43,4 @@
 ;;   (let ((cases (load-cases-file "extended-tests.json")))
 ;;     (run-cases cases)))
 
+(finalize)
